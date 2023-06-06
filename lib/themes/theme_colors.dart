@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ExprezonColors {
   static const primaryColor = Color.fromRGBO(208, 84, 16, 1);
+  static const iconbg = Color.fromRGBO(37, 36, 36, 1);
   static const drawerMenuColor = Color.fromRGBO(208, 84, 16, 1);
   static const appBarIconsColor = Color.fromRGBO(251, 98, 15, 1);
   static const drawerBackgroundColor = Color.fromRGBO(159, 17, 30, 1);
@@ -35,5 +36,5 @@ class ExprezonColors {
   static const blackColor4 = Color(0x21000000);
   static const blackColor5 = Color(0x29000000);
   static const shadowColor = Color(0x29000000);
-  static const transparentColor = Color(0xff);
+  static const transparentColor = Color(0x000000ff);
 }
