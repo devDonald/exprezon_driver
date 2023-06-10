@@ -1,4 +1,3 @@
-
 import 'package:exprezon_driver/constants/sizes.dart';
 import 'package:exprezon_driver/helpers/navigator.dart';
 import 'package:exprezon_driver/widgets/text.dart';
@@ -37,12 +36,12 @@ class _SentToBankScreenState extends State<SentToBankScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -61,12 +60,12 @@ class _SentToBankScreenState extends State<SentToBankScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'Available Amount'.tr,
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     '\$379.25'.tr,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -116,8 +115,8 @@ class _SentToBankScreenState extends State<SentToBankScreen> {
                   ),
                   Center(
                       child: SizedBox(
-                    width: ExprezonSizes.width(context),
-                    child: ExprezonFilledButton(
+                    width: ExprezonDrSizes.width(context),
+                    child: ExprezonDrFilledButton(
                         text: 'Submit'.tr, onPressed: () {}),
                   ))
                 ],

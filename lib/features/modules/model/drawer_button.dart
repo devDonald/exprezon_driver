@@ -6,52 +6,52 @@ import '../views/contact_us.dart';
 import '../views/faq_screen.dart';
 import '../views/wallet_screen.dart';
 
-class ExprezonDrawerButton {
+class ExprezonDrDrawerButton {
   String title;
   IconData icon;
   Widget? page;
-  ExprezonDrawerButton({
+  ExprezonDrDrawerButton({
     required this.title,
     required this.icon,
     this.page,
   });
 }
 
-List<ExprezonDrawerButton> exprezonDrawerButtons = [
-  ExprezonDrawerButton(
+List<ExprezonDrDrawerButton> exprezonDrawerButtons = [
+  ExprezonDrDrawerButton(
     title: 'Home',
     icon: Icons.home,
     // page: () => Get.back(),
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'My Profile',
     icon: Icons.person,
     page: const ProfileScreen(),
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'My Rides',
     icon: Icons.emoji_transportation,
     page: const MyRidesScreen(),
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'Wallet',
     icon: Icons.wallet,
     page: const WalletScreen(),
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'Promo Code',
     icon: Icons.local_offer,
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'Settings',
     icon: Icons.settings,
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'FAQs',
     icon: Icons.help,
     page: const FAQScreen(),
   ),
-  ExprezonDrawerButton(
+  ExprezonDrDrawerButton(
     title: 'Contact Us',
     icon: Icons.mail,
     page: const ContactScreen(),

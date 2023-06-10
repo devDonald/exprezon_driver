@@ -36,9 +36,9 @@ showSettings(BuildContext context) => showModalBottomSheet(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: ExprezonText('Back'),
+                      child: ExprezonDrText('Back'),
                     ),
-                    ExprezonText(
+                    ExprezonDrText(
                       'Basic Settings',
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -47,14 +47,14 @@ showSettings(BuildContext context) => showModalBottomSheet(
                       height: 20,
                     ),
                     const Divider(
-                      color: ExprezonColors.shadowColor,
+                      color: ExprezonDrColors.shadowColor,
                       thickness: 3,
                     ),
-                    ExprezonText('Choose Theme', fontWeight: FontWeight.bold),
+                    ExprezonDrText('Choose Theme', fontWeight: FontWeight.bold),
                     Row(
                       children: [
                         Radio(
-                          // title: ExprezonText('Light Mode'),
+                          // title: ExprezonDrText('Light Mode'),
                           value: 1,
                           groupValue: themeIndex,
                           onChanged: (value) {
@@ -63,13 +63,13 @@ showSettings(BuildContext context) => showModalBottomSheet(
                             });
                           },
                         ),
-                        ExprezonText('Dark Mode')
+                        ExprezonDrText('Dark Mode')
                       ],
                     ),
                     Row(
                       children: [
                         Radio(
-                          // title: ExprezonText('Light Mode'),
+                          // title: ExprezonDrText('Light Mode'),
                           value: 2,
                           groupValue: themeIndex,
                           onChanged: (value) {
@@ -78,19 +78,19 @@ showSettings(BuildContext context) => showModalBottomSheet(
                             });
                           },
                         ),
-                        ExprezonText('Light Mode'),
+                        ExprezonDrText('Light Mode'),
                       ],
                     ),
                     const Divider(
-                      color: ExprezonColors.shadowColor,
+                      color: ExprezonDrColors.shadowColor,
                       thickness: 3,
                     ),
-                    ExprezonText('Choose Language',
+                    ExprezonDrText('Choose Language',
                         fontWeight: FontWeight.bold),
                     Row(
                       children: [
                         Radio(
-                          // title: ExprezonText('Light Mode'),
+                          // title: ExprezonDrText('Light Mode'),
                           value: 1,
                           groupValue: _languageInt,
                           onChanged: (value) {
@@ -99,13 +99,13 @@ showSettings(BuildContext context) => showModalBottomSheet(
                             });
                           },
                         ),
-                        ExprezonText('English')
+                        ExprezonDrText('English')
                       ],
                     ),
                     Row(
                       children: [
                         Radio(
-                          // title: ExprezonText('Light Mode'),
+                          // title: ExprezonDrText('Light Mode'),
                           value: 2,
                           groupValue: _languageInt,
                           onChanged: (value) {
@@ -114,12 +114,12 @@ showSettings(BuildContext context) => showModalBottomSheet(
                             });
                           },
                         ),
-                        ExprezonText('Hausa'),
+                        ExprezonDrText('Hausa'),
                       ],
                     ),
                     SizedBox(
                       width: double.infinity,
-                      child: ExprezonFilledButton(
+                      child: ExprezonDrFilledButton(
                         text: 'Configure',
                         onPressed: () {
                           Get.changeTheme(

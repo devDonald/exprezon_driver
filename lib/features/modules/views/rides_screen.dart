@@ -14,12 +14,12 @@ class MyRidesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -27,7 +27,7 @@ class MyRidesScreen extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ExprezonText(
+          child: ExprezonDrText(
             'My Rides'.tr,
             fontSize: 24,
             // textAlign: T//extAlign.center,
@@ -36,7 +36,7 @@ class MyRidesScreen extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ExprezonText(
+          child: ExprezonDrText(
             'List of Rides you Booked'.tr,
             fontSize: 13,
             fontWeight: FontWeight.w400,
@@ -52,7 +52,7 @@ class MyRidesScreen extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () => ExprezonNavigator.move(
+                      onTap: () => ExprezonDrNavigator.move(
                           RideDetail(ride: ride), context),
                       child: Container(
                         height: 150,
@@ -91,12 +91,12 @@ class MyRidesScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        ExprezonText(
+                                        ExprezonDrText(
                                           ride.driverName,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 12,
                                         ),
-                                        ExprezonText(
+                                        ExprezonDrText(
                                           '${ride.carType}\n${ride.dateTime}',
                                           textAlign: TextAlign.start,
                                           fontWeight: FontWeight.w400,
@@ -111,12 +111,12 @@ class MyRidesScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      ExprezonText(
+                                      ExprezonDrText(
                                         ride.price.toString(),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 12,
                                       ),
-                                      ExprezonText(
+                                      ExprezonDrText(
                                         ride.paidFrom,
                                         textAlign: TextAlign.start,
                                         fontWeight: FontWeight.w400,
@@ -139,7 +139,7 @@ class MyRidesScreen extends StatelessWidget {
                                         Icons.location_on,
                                         color: Color.fromARGB(255, 3, 145, 112),
                                       ),
-                                      ExprezonText(
+                                      ExprezonDrText(
                                         '43 Wanpyak Street, Mangu, PL, 9ja',
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,
@@ -152,7 +152,7 @@ class MyRidesScreen extends StatelessWidget {
                                         Icons.navigation,
                                         color: Color.fromARGB(255, 3, 145, 112),
                                       ),
-                                      ExprezonText(
+                                      ExprezonDrText(
                                         '43 Wanpyak Street, Mangu, PL, 9ja',
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,

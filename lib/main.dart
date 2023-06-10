@@ -1,3 +1,4 @@
+import 'package:exprezon_driver/features/modules/views/home_screen.dart';
 import 'package:exprezon_driver/helpers/close_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,12 +39,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     closekeyboard(context);
     return GetMaterialApp(
-      title: "Exprezon",
-      translations: ExprezonTexts(),
+      title: "ExprezonDr Driver",
+      translations: ExprezonDrTexts(),
       locale: defaultLocale(),
       debugShowCheckedModeBanner: false,
       theme: getTheme(),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

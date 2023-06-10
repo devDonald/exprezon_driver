@@ -32,17 +32,19 @@ class _CarSelectionPageState extends State<CarSelectionPage> {
             fit: BoxFit.fill,
             opacity: themeIndex != 1 ? .9 : .9,
             image: AssetImage(
-              themeIndex == 1 ? ExprezonImages.map : ExprezonImages.mapwithcars,
+              themeIndex == 1
+                  ? ExprezonDrImages.map
+                  : ExprezonDrImages.mapwithcars,
             ),
           ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ExprezonStatusBar(),
+            ExprezonDrStatusBar(),
             IconButton(
               onPressed: () {
-                ExprezonNavigator.back(context);
+                ExprezonDrNavigator.back(context);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,
@@ -66,7 +68,7 @@ class _CarSelectionPageState extends State<CarSelectionPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CarCard(
-                        image: ExprezonImages.car1,
+                        image: ExprezonDrImages.car1,
                         price: '40.50',
                         rideType: 'Go Share',
                         selected: selectedCar == 'car1',
@@ -77,7 +79,7 @@ class _CarSelectionPageState extends State<CarSelectionPage> {
                         },
                       ),
                       CarCard(
-                        image: ExprezonImages.car2,
+                        image: ExprezonDrImages.car2,
                         price: '65.50',
                         rideType: 'Go Private',
                         selected: selectedCar == 'car2',
@@ -88,7 +90,7 @@ class _CarSelectionPageState extends State<CarSelectionPage> {
                         },
                       ),
                       CarCard(
-                        image: ExprezonImages.car3,
+                        image: ExprezonDrImages.car3,
                         price: '128.50',
                         rideType: 'Go Luxury',
                         selected: selectedCar == 'car3',
@@ -108,7 +110,7 @@ class _CarSelectionPageState extends State<CarSelectionPage> {
                       bottom: 11,
                     ),
                     width: double.infinity,
-                    child: ExprezonFilledButton(
+                    child: ExprezonDrFilledButton(
                       text: 'continue'.tr,
                       onPressed: () {},
                     ),
@@ -131,7 +133,8 @@ class CarCard extends StatelessWidget {
   final String price;
   final VoidCallback onTap;
 
-  const CarCard({super.key, 
+  const CarCard({
+    super.key,
     required this.image,
     required this.selected,
     required this.rideType,
@@ -147,24 +150,25 @@ class CarCard extends StatelessWidget {
         alignment: Alignment.topCenter,
         children: [
           Container(
-            width: ExprezonSizes.width(context) / 3.5,
-            height: ExprezonSizes.height(context) / 3.3,
+            width: ExprezonDrSizes.width(context) / 3.5,
+            height: ExprezonDrSizes.height(context) / 3.3,
             decoration: BoxDecoration(
-              color:
-                  selected ? const Color.fromARGB(255, 92, 158, 150) : Colors.white,
+              color: selected
+                  ? const Color.fromARGB(255, 92, 158, 150)
+                  : Colors.white,
               borderRadius: BorderRadius.circular(8),
             ),
             alignment: Alignment.bottomCenter,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ExprezonText(
+                ExprezonDrText(
                   rideType,
                   fontWeight: FontWeight.bold,
                   fontSize: 12,
                   color: Colors.black,
                 ),
-                ExprezonText(
+                ExprezonDrText(
                   'Est. \$$price',
                   fontSize: 12,
                   color: Colors.black,
@@ -176,7 +180,7 @@ class CarCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: ExprezonSizes.width(context) / 4.5,
+            width: ExprezonDrSizes.width(context) / 4.5,
             child: Padding(
               padding: const EdgeInsets.only(top: 15),
               child: Image.asset(image),

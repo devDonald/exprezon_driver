@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/assets.dart';
 import '../../constants/sizes.dart';
 import '../../services/network_handler.dart';
-import '../auth/views/phone_auth.dart';
+
 import '../modules/views/dashboard_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -34,9 +34,6 @@ class _SplashScreenState extends State<SplashScreen> {
       prefs.setBool('first_time', false);
       Get.offAll(() => const Dashboard());
       //Get.offAll(() => Onbording());
-    } else {
-      prefs.setBool('first_time', false);
-      Get.offAll(() => const PhoneAuth());
     }
   }
 
@@ -63,18 +60,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ExprezonColors.iconbg,
+      backgroundColor: ExprezonDrColors.iconbg,
       body: SizedBox(
-        width: ExprezonSizes.width(context),
+        width: ExprezonDrSizes.width(context),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipOval(
               child: Image.asset(
-                ExprezonImages.appicon,
-                width: ExprezonSizes.width(context) * 0.79,
-                height: ExprezonSizes.height(context) * 0.300,
+                ExprezonDrImages.appicon,
+                width: ExprezonDrSizes.width(context) * 0.5000,
+                height: ExprezonDrSizes.width(context) * 0.500,
               ),
             ),
           ],

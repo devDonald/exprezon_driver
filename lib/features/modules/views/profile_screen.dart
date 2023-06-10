@@ -1,4 +1,3 @@
-
 import 'package:exprezon_driver/constants/sizes.dart';
 import 'package:exprezon_driver/helpers/navigator.dart';
 import 'package:exprezon_driver/widgets/text.dart';
@@ -36,12 +35,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -60,13 +59,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'My Profile'.tr,
                     fontSize: 24,
                     // textAlign: T//extAlign.center,
                     fontWeight: FontWeight.bold,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'Your Account Details'.tr,
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
@@ -142,8 +141,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Center(
                       child: SizedBox(
-                    width: ExprezonSizes.width(context) / 1.2,
-                    child: ExprezonFilledButton(
+                    width: ExprezonDrSizes.width(context) / 1.2,
+                    child: ExprezonDrFilledButton(
                         text: 'Update'.tr, onPressed: () {}),
                   ))
                 ],

@@ -9,6 +9,7 @@ import '../../../helpers/setting_bottom_bar.dart';
 import '../../../widgets/filled_button.dart';
 import '../../../widgets/statusbar.dart';
 import '../../../widgets/text.dart';
+import '../../../widgets/text_button.dart';
 import '../../../widgets/user_accounts_header.dart';
 import 'car_selection_screen.dart';
 
@@ -20,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isOnline = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? Colors.black
             : null,
-        width: ExprezonSizes.width(context) / 1.2,
+        width: ExprezonDrSizes.width(context) / 1.2,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,10 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               IconButton(
-                  onPressed: () => ExprezonNavigator.back(context),
+                  onPressed: () => ExprezonDrNavigator.back(context),
                   icon: const Icon(Icons.arrow_back_ios)),
-              const ExprezonUserAccountsWidget(),
-              for (ExprezonDrawerButton drawerButton in exprezonDrawerButtons)
+              const ExprezonDrUserAccountsWidget(),
+              for (ExprezonDrDrawerButton drawerButton in exprezonDrawerButtons)
                 Container(
                   // height: 30,
                   margin: const EdgeInsets.only(top: 10, right: 10, left: 10),
@@ -50,11 +52,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     onTap: () {
                       if (drawerButton.title == 'Home') {
-                        ExprezonNavigator.back(context);
+                        ExprezonDrNavigator.back(context);
                       } else if (drawerButton.title == 'Settings') {
                         showSettings(context);
                       } else {
-                        ExprezonNavigator.move(
+                        ExprezonDrNavigator.move(
                             drawerButton.page ??
                                 Scaffold(
                                   appBar: AppBar(),
@@ -68,154 +70,86 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
-                    title: ExprezonText(drawerButton.title),
+                    title: ExprezonDrText(drawerButton.title),
                     // shape: ,
                   ),
                 ),
-              Center(child: ExprezonText('Exprezon © 2023'))
+              Center(child: ExprezonDrText('ExprezonDr © 2023'))
             ],
           ),
         ),
       ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.,
+      floatingActionButton: FloatingActionButton(onPressed: () {}),
       body: Container(
-        decoration: BoxDecoration(
-          color: themeIndex != 1
-              ? const Color.fromARGB(255, 7, 0, 0)
-              : const Color.fromARGB(255, 252, 249, 249),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            opacity: Theme.of(context).brightness == Brightness.dark ? .9 : .9,
-            image: AssetImage(
-              Theme.of(context).brightness == Brightness.dark
-                  ? ExprezonImages.map
-                  : ExprezonImages.map1,
-            ),
-          ),
-        ),
+        width: double.infinity,
+        height: double.infinity,
+        // color: Colors.red,
         child: Column(
           children: [
-            ExprezonStatusBar(),
-            SizedBox(
-              //  color: themeIndex == 1 ? Colors.transparent : Colors.teal,
-              width: ExprezonSizes.width(context),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Builder(builder: (context) {
-                      return IconButton(
-                        onPressed: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                        icon: const Icon(
-                          Icons.menu,
+            ExprezonDrStatusBar(),
+            Expanded(
+              child: Stack(
+                children: [
+                  //This will be Replaced with the Map
+                  InteractiveViewer(
+                    child: Image.asset(
+                      ExprezonDrImages.map,
+                      width: double.infinity,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      ListTile(
+                        title: ExprezonDrText(
+                          '12 Rides  | ₦29,600',
+                          // onPressed: () {},
                         ),
-                      );
-                    }),
-                    ExprezonText(
-                      'BOOK YOUR RIDE',
-                      fontWeight: FontWeight.bold,
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        showSettings(context);
-                      },
-                      icon: const Icon(
-                        Icons.settings,
+                        leading: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(ExprezonDrImages.driver),
+                        ),
                       ),
-                    )
-                  ]),
-            ),
-            Container(
-              margin: const EdgeInsets.all(15),
-              // height: 150,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.teal, width: 2),
-                  color: themeIndex == 1
-                      ? const Color.fromARGB(177, 22, 22, 22)
-                      : const Color.fromARGB(87, 241, 238, 238),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ListTile(
-                    minVerticalPadding: 0,
-                    horizontalTitleGap: 0,
-                    leading: const Icon(
-                      Icons.location_on,
-                      color: Color.fromARGB(255, 3, 145, 112),
-                    ),
-                    title: ExprezonText(
-                      '43 Wanpyak Street, Mangu, PL, 9ja',
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    ],
                   ),
-                  ListTile(
-                    minLeadingWidth: 0,
-                    leading: const Icon(
-                      Icons.navigation,
-                      color: Color.fromARGB(255, 3, 145, 112),
-                    ),
-                    title: ExprezonText(
-                      'COCIN LCC Tongsat, Mangu, PL, 9ja',
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            for (var i = 0; i < 4; i++) const Spacer(),
-            Container(
-              margin: const EdgeInsets.all(15),
-              // height: 150,
-              decoration: BoxDecoration(
-                  color: themeIndex == 1
-                      ? const Color.fromARGB(177, 22, 22, 22)
-                      : const Color.fromARGB(100, 241, 238, 238),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ListTile(
-                    minVerticalPadding: 0,
-                    horizontalTitleGap: 0,
-                    leading: ExprezonText(
-                      'Payment Mode',
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    title: const SizedBox(
-                        height: 20,
-                        child: VerticalDivider(
-                          thickness: 1.5,
-                          color: Colors.grey,
-                        )),
-                    trailing: ExprezonText(
-                      'Wallet',
-                      color: Colors.teal,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(
-                      right: 10,
-                      left: 10,
-                      bottom: 11,
-                    ),
-                    width: double.infinity,
-                    child: ExprezonFilledButton(
-                      text: 'continue'.tr,
-                      onPressed: () {
-                        ExprezonNavigator.move(const CarSelectionPage(), context);
-                      },
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: SizedBox(
+                      height: ExprezonDrSizes.height(context) / 12,
+                      //  color: themeIndex == 1 ? Colors.transparent : Colors.teal,
+                      width: ExprezonDrSizes.width(context),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Builder(builder: (context) {
+                              return IconButton(
+                                onPressed: () {
+                                  Scaffold.of(context).openDrawer();
+                                },
+                                icon: const Icon(
+                                  Icons.menu,
+                                ),
+                              );
+                            }),
+                            ExprezonDrText(
+                              'BOOK YOUR RIDE',
+                              fontWeight: FontWeight.bold,
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                showSettings(context);
+                              },
+                              icon: const Icon(
+                                Icons.settings,
+                              ),
+                            )
+                          ]),
                     ),
                   ),
                 ],
               ),
             ),
-            const Spacer(),
           ],
         ),
       ),

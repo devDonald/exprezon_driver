@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class ExprezonTexts extends Translations {
+class ExprezonDrTexts extends Translations {
   @override
   // TODO: implement keys
   Map<String, Map<String, String>> get keys => {

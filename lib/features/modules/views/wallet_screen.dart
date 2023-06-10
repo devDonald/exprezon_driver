@@ -1,4 +1,3 @@
-
 import 'package:exprezon_driver/features/modules/views/ride_detail.dart';
 import 'package:exprezon_driver/features/modules/views/sent_to_bank_screen.dart';
 import 'package:exprezon_driver/widgets/filled_button.dart';
@@ -17,12 +16,12 @@ class WalletScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -37,12 +36,12 @@ class WalletScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'Available Amount'.tr,
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     '\$379.25',
                     fontSize: 24,
                     // textAlign: T//extAlign.center,
@@ -54,10 +53,11 @@ class WalletScreen extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
-                        child: ExprezonFilledButton(
+                        child: ExprezonDrFilledButton(
                           text: 'Sent to Bank',
                           onPressed: () {
-                            ExprezonNavigator.move(const SentToBankScreen(), context);
+                            ExprezonDrNavigator.move(
+                                const SentToBankScreen(), context);
                           },
                         ),
                       ),
@@ -65,7 +65,7 @@ class WalletScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Expanded(
-                        child: ExprezonFilledButton(
+                        child: ExprezonDrFilledButton(
                           text: 'Add Amount',
                           onPressed: () {},
                         ),
@@ -75,7 +75,7 @@ class WalletScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     '    Recent Transactions',
                     color: Colors.grey,
                   ),
@@ -89,22 +89,22 @@ class WalletScreen extends StatelessWidget {
                               'assets/images/users/driver.png',
                               width: 50,
                             ),
-                            onTap: () => ExprezonNavigator.move(
+                            onTap: () => ExprezonDrNavigator.move(
                                 RideDetail(ride: ride), context),
-                            title: ExprezonText(
+                            title: ExprezonDrText(
                               ride.driverName,
                               fontSize: 13,
                             ),
-                            subtitle: ExprezonText(ride.carType),
+                            subtitle: ExprezonDrText(ride.carType),
                             trailing: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                ExprezonText(
+                                ExprezonDrText(
                                   '- \$${ride.price}',
                                   color: Colors.red,
                                   fontSize: 12,
                                 ),
-                                ExprezonText(
+                                ExprezonDrText(
                                   'Ride Info  >>',
                                   fontSize: 10,
                                   color: Colors.teal,

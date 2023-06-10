@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../../../helpers/setting_bottom_bar.dart';
 import '../../../widgets/filled_button.dart';
 import '../../../widgets/statusbar.dart';
-import '../../otherscreens/add_card.dart';
+import '../../otherscreens/add_payment_account.dart';
 
 // ignore: must_be_immutable
 class OTPScreen extends StatefulWidget {
@@ -37,12 +37,12 @@ class OTPScreenState extends State<OTPScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -60,7 +60,7 @@ class OTPScreenState extends State<OTPScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ExprezonText(
+                ExprezonDrText(
                   'otp_sent'.tr,
                   fontSize: 24,
                   textAlign: TextAlign.center,
@@ -69,13 +69,13 @@ class OTPScreenState extends State<OTPScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ExprezonText(
+                    ExprezonDrText(
                       'Otp Sent to ${widget.phone}',
                       fontWeight: FontWeight.bold,
                       color: Colors.grey.shade600,
                     ),
                     TextButton(
-                        onPressed: () {}, child: ExprezonText('change'.tr))
+                        onPressed: () {}, child: ExprezonDrText('change'.tr))
                   ],
                 ),
                 const SizedBox(
@@ -85,7 +85,7 @@ class OTPScreenState extends State<OTPScreen> {
                   numberOfFields: 6,
                   autoFocus: true,
 
-                  fieldWidth: ExprezonSizes.width(context) / 8,
+                  fieldWidth: ExprezonDrSizes.width(context) / 8,
 
                   //set to true to show as box or false to show as dash
                   showFieldAsBox: true,
@@ -103,16 +103,16 @@ class OTPScreenState extends State<OTPScreen> {
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: ExprezonText('${'resend'.tr} OTP')),
+                    child: ExprezonDrText('${'resend'.tr} OTP')),
                 const SizedBox(
                   height: 10,
                 ),
-                ExprezonFilledButton(
+                ExprezonDrFilledButton(
                   text: 'continue'.tr,
                   onPressed: otp.isEmpty
                       ? null
                       : () {
-                          ExprezonNavigator.move(
+                          ExprezonDrNavigator.move(
                               const AddCreditCardScreen(), context);
                         },
                 ),

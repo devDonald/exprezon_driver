@@ -14,12 +14,12 @@ class ContactScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -34,13 +34,13 @@ class ContactScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'Contact Us',
                     fontSize: 24,
                     // textAlign: T//extAlign.center,
                     fontWeight: FontWeight.bold,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'Let us know your Issue & Feedback'.tr,
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
@@ -51,10 +51,10 @@ class ContactScreen extends StatelessWidget {
                   Row(
                     children: [
                       Expanded(
-                        child: ExprezonFilledButton(
+                        child: ExprezonDrFilledButton(
                           text: 'Call Us',
                           onPressed: () {
-                            ExprezonNavigator.move(
+                            ExprezonDrNavigator.move(
                                 const SentToBankScreen(), context);
                           },
                         ),
@@ -63,7 +63,7 @@ class ContactScreen extends StatelessWidget {
                         width: 10,
                       ),
                       Expanded(
-                        child: ExprezonFilledButton(
+                        child: ExprezonDrFilledButton(
                           text: 'Email Us',
                           onPressed: () {},
                         ),
@@ -73,13 +73,13 @@ class ContactScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'Write Us',
                     fontSize: 18,
                     // textAlign: T//extAlign.center,
                     fontWeight: FontWeight.bold,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'Describe your issue or feedback'.tr,
                     fontSize: 11,
                     fontWeight: FontWeight.w400,
@@ -91,7 +91,7 @@ class ContactScreen extends StatelessWidget {
                     controller:
                         TextEditingController(text: 'codewithwise@gmail.com'),
                     decoration: InputDecoration(
-                      label: ExprezonText(
+                      label: ExprezonDrText(
                         'Your Email Address',
                       ),
                     ),
@@ -103,7 +103,7 @@ class ContactScreen extends StatelessWidget {
                     controller:
                         TextEditingController(text: 'Write your Message'),
                     decoration: InputDecoration(
-                      label: ExprezonText(
+                      label: ExprezonDrText(
                         'Describe your issue or feedback',
                       ),
                     ),
@@ -113,7 +113,7 @@ class ContactScreen extends StatelessWidget {
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: ExprezonFilledButton(
+                    child: ExprezonDrFilledButton(
                       text: 'Send',
                       onPressed: () {},
                     ),

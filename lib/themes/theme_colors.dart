@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ExprezonColors {
+class ExprezonDrColors {
   static const primaryColor = Color.fromRGBO(208, 84, 16, 1);
   static const iconbg = Color.fromRGBO(37, 36, 36, 1);
   static const drawerMenuColor = Color.fromRGBO(208, 84, 16, 1);

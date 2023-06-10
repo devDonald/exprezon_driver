@@ -18,7 +18,7 @@ class RideDetail extends StatelessWidget {
     return Scaffold(
       // drawer: Drawer(),
       body: Container(
-        width: ExprezonSizes.width(context),
+        width: ExprezonDrSizes.width(context),
         decoration: BoxDecoration(
           color: themeIndex != 1
               ? const Color.fromARGB(255, 7, 0, 0)
@@ -28,18 +28,18 @@ class RideDetail extends StatelessWidget {
             opacity: themeIndex != 1 ? .9 : .9,
             image: AssetImage(
               Theme.of(context).brightness == Brightness.dark
-                  ? ExprezonImages.map
-                  : ExprezonImages.map1,
+                  ? ExprezonDrImages.map
+                  : ExprezonDrImages.map1,
             ),
           ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ExprezonStatusBar(),
+            ExprezonDrStatusBar(),
             IconButton(
               onPressed: () {
-                ExprezonNavigator.back(context);
+                ExprezonDrNavigator.back(context);
               },
               icon: const Icon(
                 Icons.arrow_back_ios_new,
@@ -74,12 +74,12 @@ class RideDetail extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ExprezonText(
+                        ExprezonDrText(
                           ride.driverName,
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         ),
-                        ExprezonText(
+                        ExprezonDrText(
                           '${ride.carType}\n${ride.dateTime}',
                           textAlign: TextAlign.start,
                           fontWeight: FontWeight.w400,
@@ -93,12 +93,12 @@ class RideDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ExprezonText(
+                      ExprezonDrText(
                         ride.price.toString(),
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                       ),
-                      ExprezonText(
+                      ExprezonDrText(
                         ride.paidFrom,
                         textAlign: TextAlign.start,
                         fontWeight: FontWeight.w400,
@@ -127,8 +127,8 @@ class RideDetail extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ExprezonText('Ride Info'),
-                        ExprezonText('08km')
+                        ExprezonDrText('Ride Info'),
+                        ExprezonDrText('08km')
                       ],
                     ),
                     const SizedBox(
@@ -140,7 +140,7 @@ class RideDetail extends StatelessWidget {
                           Icons.location_on,
                           color: Color.fromARGB(255, 3, 145, 112),
                         ),
-                        ExprezonText(
+                        ExprezonDrText(
                           '43 Wanpyak Street, Mangu, PL, 9ja',
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
@@ -153,7 +153,7 @@ class RideDetail extends StatelessWidget {
                           Icons.navigation,
                           color: Color.fromARGB(255, 3, 145, 112),
                         ),
-                        ExprezonText(
+                        ExprezonDrText(
                           '43 Wanpyak Street, Mangu, PL, 9ja',
                           fontSize: 11,
                           fontWeight: FontWeight.w600,

@@ -18,12 +18,12 @@ class _FAQScreenState extends State<FAQScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -42,12 +42,12 @@ class _FAQScreenState extends State<FAQScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'FAQs'.tr,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'Read FAQs solutions'.tr,
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
@@ -69,11 +69,11 @@ class _FAQScreenState extends State<FAQScreen> {
                                 (BuildContext context, bool isExpanded) {
                               return ListTile(
                                 minVerticalPadding: 0,
-                                title: ExprezonText(
+                                title: ExprezonDrText(
                                   item.questionType,
                                   fontSize: 10,
                                 ),
-                                subtitle: ExprezonText(
+                                subtitle: ExprezonDrText(
                                   item.question,
                                   fontSize: 14,
                                   color: Theme.of(context).brightness ==
@@ -85,7 +85,7 @@ class _FAQScreenState extends State<FAQScreen> {
                               );
                             },
                             body: ListTile(
-                              title: ExprezonText(
+                              title: ExprezonDrText(
                                 item.answer,
                                 fontSize: 12,
                               ),

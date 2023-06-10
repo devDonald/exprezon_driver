@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:exprezon_driver/constants/sizes.dart';
 import 'package:exprezon_driver/features/auth/views/otp_screen.dart';
 import 'package:exprezon_driver/helpers/navigator.dart';
+import 'package:exprezon_driver/widgets/radio.dart';
 import 'package:exprezon_driver/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,17 +43,17 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
   final FocusNode phoneFN = FocusNode();
   final FocusNode nameFN = FocusNode();
   final FocusNode emailFN = FocusNode();
-
+  String val = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              onPressed: () => ExprezonNavigator.back(context),
+              onPressed: () => ExprezonDrNavigator.back(context),
               color: Colors.teal,
               icon: const Icon(Icons.arrow_back_ios),
             ),
@@ -71,13 +72,13 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ExprezonText(
+                  ExprezonDrText(
                     'signup'.tr,
                     fontSize: 24,
                     // textAlign: T//extAlign.center,
                     fontWeight: FontWeight.bold,
                   ),
-                  ExprezonText(
+                  ExprezonDrText(
                     'requireNotice'.tr,
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
@@ -114,9 +115,6 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
                   IntlPhoneField(
                     decoration: const InputDecoration(
                       labelText: 'Phone Number',
-                      // border: OutlineInputBorder(
-                      //   borderSide: BorderSide(),
-                      // ),
                     ),
                     dropdownIconPosition: IconPosition.trailing,
                     flagsButtonPadding: EdgeInsets.zero,
@@ -152,23 +150,92 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
                     controller: emailController,
                     focusNode: emailFN,
                     textInputAction: TextInputAction.done,
-                    onSubmitted: (value) {
-                      // Perform any action you want when the last field is submitted
-                    },
+                    onSubmitted: (value) {},
                     decoration: InputDecoration(
                       labelText: 'email'.tr,
                     ),
                   ),
+                  const SizedBox(height: 20.0),
+                  ExprezonDrText('Do you have a Car?'),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ExprezonDrRadio(
+                        groupValue: val,
+                        onChanged: (p0) {
+                          setState(() {
+                            val = p0 as String;
+                          });
+                        },
+                        text: 'Yes',
+                        value: 'yes',
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      ExprezonDrRadio(
+                        groupValue: val,
+                        onChanged: (p0) {
+                          setState(() {
+                            val = p0 as String;
+                          });
+                        },
+                        text: 'No',
+                        value: 'no',
+                      )
+                    ],
+                  ),
+
+                  if (val == 'yes')
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextField(
+                          // controller: emailController,
+
+                          textInputAction: TextInputAction.done,
+                          onSubmitted: (value) {},
+                          decoration: InputDecoration(
+                            labelText: 'Car Model'.tr,
+                          ),
+                        ),
+                        TextField(
+                          // controller: emailController,
+
+                          textInputAction: TextInputAction.done,
+                          onSubmitted: (value) {},
+                          decoration: InputDecoration(
+                            labelText: 'Car Brand'.tr,
+                          ),
+                        ),
+                        ListTile(
+                          leading: ExprezonDrText('Upload Document'),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ExprezonDrText(
+                                '.docx, .pdf, .otd, .pptx',
+                                fontSize: 9,
+                              ),
+                              IconButton(
+                                  onPressed: () async {},
+                                  icon: Icon(Icons.upload)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
                   const SizedBox(
                     height: 20,
                   ),
                   Center(
                       child: SizedBox(
-                    width: ExprezonSizes.width(context) / 1.2,
-                    child: ExprezonFilledButton(
+                    width: ExprezonDrSizes.width(context),
+                    child: ExprezonDrFilledButton(
                         text: 'continue'.tr,
                         onPressed: () {
-                          ExprezonNavigator.move(
+                          ExprezonDrNavigator.move(
                               OTPScreen(phone: '+23481622626426'), context);
                         }),
                   ))

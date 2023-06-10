@@ -1,5 +1,5 @@
 import 'package:exprezon_driver/features/auth/views/email_auth.dart';
-import 'package:exprezon_driver/features/auth/views/phone_auth.dart';
+// import 'package:exprezon_driver/features/auth/views/phone_auth.dart';
 import 'package:exprezon_driver/helpers/navigator.dart';
 import 'package:exprezon_driver/widgets/statusbar.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       print(timeStamp.inSeconds);
-      showSettings(con + text);
+      showSettings(context);
       print('Build Completed');
     });
     // TODO: implement initState
@@ -34,7 +34,7 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        ExprezonStatusBar(),
+        ExprezonDrStatusBar(),
         Align(
           alignment: Alignment.centerRight,
           child: IconButton(
@@ -49,8 +49,8 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ExprezonText(
-                  'Exprezon'.tr,
+                ExprezonDrText(
+                  'Exprezon Driver'.tr,
                   fontSize: 24,
                   textAlign: TextAlign.center,
                   fontWeight: FontWeight.bold,
@@ -58,20 +58,14 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                ExprezonFilledButton(
+                ExprezonDrFilledButton(
                   text: 'continuewithemail'.tr,
                   onPressed: () {
-                    ExprezonNavigator.move(const EmailAuthScreen(), context);
+                    ExprezonDrNavigator.move(const EmailAuthScreen(), context);
                   },
                 ),
                 const SizedBox(
                   height: 10,
-                ),
-                ExprezonFilledButton(
-                  text: 'continuewithphone'.tr,
-                  onPressed: () {
-                    ExprezonNavigator.move(const PhoneAuth(), context);
-                  },
                 ),
                 const SizedBox(
                   height: 15,
@@ -81,7 +75,7 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
                     const Expanded(
                       child: Divider(),
                     ),
-                    ExprezonText('or'),
+                    ExprezonDrText('or'),
                     const Expanded(
                       child: Divider(),
                     ),
@@ -90,11 +84,11 @@ class _InitialAuthPageState extends State<InitialAuthPage> {
                 const SizedBox(
                   height: 15,
                 ),
-                ExprezonFilledButton(
+                ExprezonDrFilledButton(
                   text: 'Login'.tr,
                   onPressed: () {
                     print(phoneController);
-                    // ExprezonNavigator.move(OTPScreen(phone: phoneController));
+                    // ExprezonDrNavigator.move(OTPScreen(phone: phoneController));
                   },
                 )
               ],

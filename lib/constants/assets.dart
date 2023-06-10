@@ -1,4 +1,4 @@
-class ExprezonImages {
+class ExprezonDrImages {
   static const appicon = 'assets/icons/trialico.png';
 
   static const app_icon = '${_images}app_icon.png';
@@ -18,4 +18,4 @@ class ExprezonImages {
 const _cars = 'assets/images/cars/';
 const _icons = 'assets/icons/';
 const _images = 'assets/images/';
-const _users = 'assets/users/';
+const _users = 'assets/images/users/';

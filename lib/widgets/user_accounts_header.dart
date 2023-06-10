@@ -1,8 +1,8 @@
 import 'package:exprezon_driver/widgets/text.dart';
 import 'package:flutter/material.dart';
 
-class ExprezonUserAccountsWidget extends StatelessWidget {
-  const ExprezonUserAccountsWidget({super.key});
+class ExprezonDrUserAccountsWidget extends StatelessWidget {
+  const ExprezonDrUserAccountsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,12 @@ class ExprezonUserAccountsWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ExprezonText(
+              ExprezonDrText(
                 'Wisdom Dauda',
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
-              ExprezonText(
+              ExprezonDrText(
                 '+234 814 6626 426',
                 fontWeight: FontWeight.w400,
                 fontSize: 10,
@@ -45,7 +45,7 @@ class ExprezonUserAccountsWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ExprezonText(
+                    ExprezonDrText(
                       '4.0',
                       fontSize: 10,
                       fontWeight: FontWeight.bold,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ExprezonText extends StatelessWidget {
+class ExprezonDrText extends StatelessWidget {
   String text;
   FontWeight? fontWeight;
   double? fontSize;
   Color? color;
   TextAlign? textAlign;
 
-  ExprezonText(
+  ExprezonDrText(
     this.text, {
     this.fontWeight,
     this.textAlign,

@@ -10,8 +10,8 @@ class CreditCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ExprezonSizes.width(context),
-      height: ExprezonSizes.width(context) / 2.1,
+      width: ExprezonDrSizes.width(context),
+      height: ExprezonDrSizes.width(context) / 2.1,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         gradient: LinearGradient(colors: [
@@ -45,13 +45,13 @@ class CreditCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ExprezonText(
+                  child: ExprezonDrText(
                     'Wisdom Dauda',
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
-                ExprezonText(
+                ExprezonDrText(
                   'Exp: 12/24',
                   fontSize: 16,
                   color: Colors.white,

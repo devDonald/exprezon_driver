@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-class ExprezonNavigator {
+class ExprezonDrNavigator {
   static move(Widget page, BuildContext context) {
     Navigator.of(context).push(PageTransition(
       type: PageTransitionType.rightToLeftWithFade,
