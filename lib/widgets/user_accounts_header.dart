@@ -13,7 +13,7 @@ class ExprezonDrUserAccountsWidget extends StatelessWidget {
         color: Theme.of(context).brightness == Brightness.dark
             ? Colors.teal
             : const Color.fromARGB(255, 178, 196, 194),
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

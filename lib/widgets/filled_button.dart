@@ -1,5 +1,6 @@
 import 'package:exprezon_driver/widgets/text.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ExprezonDrFilledButton extends StatelessWidget {
   String text;
@@ -19,5 +20,13 @@ class ExprezonDrFilledButton extends StatelessWidget {
         text,
       ),
     );
+  }
+
+  static Widget icon(BuildContext? context,
+      {required IconData icon,
+      required Text label,
+      required Function()? onPressed}) {
+    return ElevatedButton.icon(
+        onPressed: onPressed, icon: Icon(icon), label: label);
   }
 }

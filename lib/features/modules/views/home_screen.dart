@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:exprezon_driver/features/modules/model/drawer_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +15,7 @@ import '../../../widgets/text.dart';
 import '../../../widgets/text_button.dart';
 import '../../../widgets/user_accounts_header.dart';
 import 'car_selection_screen.dart';
+import 'incoming_ride_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -40,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
               IconButton(
                   onPressed: () => ExprezonDrNavigator.back(context),
                   icon: const Icon(Icons.arrow_back_ios)),
-              const ExprezonDrUserAccountsWidget(),
               for (ExprezonDrDrawerButton drawerButton in exprezonDrawerButtons)
                 Container(
                   // height: 30,
@@ -74,13 +77,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     // shape: ,
                   ),
                 ),
-              Center(child: ExprezonDrText('ExprezonDr © 2023'))
+              const SizedBox(
+                height: 5,
+              ),
+              const ExprezonDrUserAccountsWidget(),
+              Center(child: ExprezonDrText('Exprezon Driver © 2023'))
             ],
           ),
         ),
       ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.,
-      floatingActionButton: FloatingActionButton(onPressed: () {}),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+          label: ExprezonDrText(isOnline == false ? 'Go Online' : 'Go Offline'),
+          onPressed: () {
+            if (isOnline == false) {
+              Future.delayed(Duration(seconds: 3)).then((value) =>
+                  ExprezonDrNavigator.move(IncomingRideScreen(), context));
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CupertinoAlertDialog(
+                      actions: [Center(child: CircularProgressIndicator())],
+                      title: Center(
+                        child: ExprezonDrText(
+                            'Searching for Rides near Your Location'),
+                      ),
+                    );
+                  });
+            }
+            setState(() {
+              isOnline = !isOnline;
+            });
+          }),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -99,19 +127,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  Column(
-                    children: [
-                      ListTile(
-                        title: ExprezonDrText(
-                          '12 Rides  | ₦29,600',
-                          // onPressed: () {},
-                        ),
-                        leading: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(ExprezonDrImages.driver),
-                        ),
-                      ),
-                    ],
+                  ListTile(
+                    title: ExprezonDrText(
+                      '12 Rides  | ₦29,600',
+                      // onPressed: () {},
+                    ),
+                    subtitle: ExprezonDrText(
+                      'Today',
+                      fontWeight: FontWeight.bold,
+                    ),
+                    leading: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(ExprezonDrImages.driver),
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -132,10 +160,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               );
                             }),
-                            ExprezonDrText(
-                              'BOOK YOUR RIDE',
-                              fontWeight: FontWeight.bold,
-                            ),
                             IconButton(
                               onPressed: () {
                                 showSettings(context);
